@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -22,23 +23,18 @@ class _HomeScreenView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: const [
-
-
         _CustomListTile(
             title: 'Estado básico',
             subTitle: 'Un estado para almacenar un objeto',
             location: '/basic-state'),
-
         _CustomListTile(
             title: 'i18n Locales',
             subTitle: 'Cambiar idioma',
             location: '/lang-i18n'),
-
         _CustomListTile(
             title: 'State compuesto',
             subTitle: 'TODO - Una mezcla entre controladores',
             location: '/complex-state'),
-
       ],
     );
   }
@@ -58,10 +54,11 @@ class _CustomListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(title),
-      subtitle: Text(subTitle),
-      trailing: const Icon(Icons.arrow_forward_ios_rounded),
-      onTap: () => context.push(location),
-    );
+        title: Text(title),
+        subtitle: Text(subTitle),
+        trailing: const Icon(Icons.arrow_forward_ios_rounded),
+        // onTap: () => context.push(location),
+        // onTap: () => Get.to( HomeScreen() ) );
+        onTap: () => Get.toNamed( location ) );
   }
 }

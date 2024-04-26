@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:state_app/config/theme/app_theme.dart';
 import 'package:state_app/config/router/app_router.dart';
 
@@ -11,10 +12,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return MaterialApp.router(
+    return GetMaterialApp(
       title: 'GetX',
       debugShowCheckedModeBanner: false,
-      routerConfig: appRouter,
+      // routerConfig: appRouter,
+      getPages: getPages,
       theme: AppTheme( isDarkMode: false ).getTheme(),
     );
   }
