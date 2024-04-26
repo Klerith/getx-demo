@@ -25,41 +25,20 @@ class _HomeScreenView extends StatelessWidget {
 
 
         _CustomListTile(
-            title: 'State Provider',
+            title: 'Estado básico',
             subTitle: 'Un estado para almacenar un objeto',
             location: '/basic-state'),
 
         _CustomListTile(
-            title: 'State Provider + Provider',
-            subTitle: 'TODO - Una mezcla entre providers',
-            location: '/todo'),
+            title: 'i18n Locales',
+            subTitle: 'Cambiar idioma',
+            location: '/lang-i18n'),
 
         _CustomListTile(
-            title: 'Future Provider',
-            subTitle: 'Mantener el estado de un future y su retorno',
-            location: '/future-provider'),
+            title: 'State compuesto',
+            subTitle: 'TODO - Una mezcla entre controladores',
+            location: '/complex-state'),
 
-        _CustomListTile(
-            title: 'Family Future Provider',
-            subTitle: 'Providers con argumentos',
-            location: '/future-family-provider'),
-
-
-        _CustomListTile(
-            title: 'Stream Provider',
-            subTitle: 'Mantener el estado de un Stream y sus emosiones',
-            location: '/stream-provider'),
-
-
-        _CustomListTile(
-            title: 'State Notifier Provider',
-            subTitle: 'Provider con notificación automática',
-            location: '/state-notifier-provider'),
-
-        _CustomListTile(
-            title: 'Change Notifier Provider',
-            subTitle: 'Provider con control de notificación a listeners',
-            location: '/change-notifier-provider'),
       ],
     );
   }

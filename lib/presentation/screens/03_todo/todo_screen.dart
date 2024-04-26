@@ -8,7 +8,7 @@ class TodoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('State Provider + Providers'),
+        title: const Text('Estado compuesto'),
       ),
       body: const _TodoView(),
       floatingActionButton: FloatingActionButton(
@@ -50,7 +50,7 @@ class _TodoView extends StatelessWidget {
           child: ListView.builder(
             itemBuilder: (context, index) {
               return SwitchListTile(
-                title: const Text('Juan carlos'),
+                title: const Text('Juan Carlos'),
                 value: true, 
                 onChanged: ( value ) {}
               );
