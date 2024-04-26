@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 
-class StateProviderScreen extends StatelessWidget {
-  const StateProviderScreen({super.key});
+class BasicStateScreen extends StatelessWidget {
+  const BasicStateScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('State Provider'),
+        title: const Text('Estados básicos'),
       ),
       body: Center(
         child: Column(

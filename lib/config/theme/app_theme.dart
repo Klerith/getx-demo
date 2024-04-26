@@ -7,15 +7,15 @@ const seedColor = Color.fromARGB(255, 7, 80, 59);
 
 class AppTheme {
 
-  final bool isDarkmode;
+  final bool isDarkMode;
 
-  AppTheme({ required this.isDarkmode });
+  AppTheme({ required this.isDarkMode });
 
 
   ThemeData getTheme() => ThemeData(
     useMaterial3: true,
     colorSchemeSeed: seedColor,
-    brightness: isDarkmode ? Brightness.dark : Brightness.light,
+    brightness: isDarkMode ? Brightness.dark : Brightness.light,
 
     listTileTheme: const ListTileThemeData(
       iconColor: seedColor,

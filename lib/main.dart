@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_app/config/config.dart';
+import 'package:state_app/config/theme/app_theme.dart';
+import 'package:state_app/config/router/app_router.dart';
+
 
 void main() => runApp(const MyApp());
 
@@ -10,10 +12,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp.router(
-      title: 'Riverpod Providers',
+      title: 'GetX',
       debugShowCheckedModeBanner: false,
       routerConfig: appRouter,
-      theme: AppTheme( isDarkmode: false ).getTheme(),
+      theme: AppTheme( isDarkMode: false ).getTheme(),
     );
   }
 }
