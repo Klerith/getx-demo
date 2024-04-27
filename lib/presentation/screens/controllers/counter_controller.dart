@@ -9,5 +9,14 @@ class CounterController extends GetxController {
     update();
   }
 
+}
+
+class CounterReactiveController extends GetxController {
+
+  RxInt counter = 0.obs;
+
+  void increment() {
+    counter.value++;
+  }
 
 }
