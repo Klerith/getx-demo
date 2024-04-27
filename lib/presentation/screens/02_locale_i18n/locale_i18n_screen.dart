@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 
 class LocalI18nScreen extends StatelessWidget {
@@ -10,24 +11,32 @@ class LocalI18nScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Locale y traducciones'),
       ),
-      body: const Center(
+      body: Center(
         child: Column(
           children: [
-            Spacer(flex: 1,),
+            const Spacer(flex: 1,),
 
 
-            Text('Hola Mundo', style: TextStyle(fontSize: 25 )),
+            Text('hello-world'.tr, style: const TextStyle(fontSize: 25 )),
 
   
             
-            Spacer( flex: 2 ),
+            const Spacer( flex: 2 ),
           ],
         )
       ),
       floatingActionButton: FloatingActionButton.extended(
-        label: const Text('Cambiar idioma'),
+        label: Text('change-language'.tr),
         icon: const Icon( Icons.refresh_rounded ),
-        onPressed: () {},
+        onPressed: () {
+          if (Get.locale?.languageCode == 'en') {
+            Get.updateLocale(const Locale('es', 'ES'));
+          } else if (Get.locale?.languageCode == 'es') {
+            Get.updateLocale(const Locale('fr', 'FR'));
+          } else {
+            Get.updateLocale(const Locale('en', 'US'));
+          }
+        },
       ),
     );
   }

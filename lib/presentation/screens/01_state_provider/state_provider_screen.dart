@@ -8,8 +8,10 @@ class BasicStateScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     final counterReactiveCtrl = Get.put(CounterReactiveController());
     final globalUsername = Get.find<GlobalUsernameController>();
+    final themeController = Get.find<ThemeController>();
 
     return Scaffold(
       appBar: AppBar(
@@ -18,13 +20,21 @@ class BasicStateScreen extends StatelessWidget {
       body: Center(
           child: Column(
         children: [
-          const Spacer(
+            const Spacer(
             flex: 1,
           ),
           IconButton(
             // icon: const Icon( Icons.light_mode_outlined, size: 100 ),
-            icon: const Icon(Icons.dark_mode_outlined, size: 100),
-            onPressed: () {},
+            icon: Obx(() => Icon(
+                themeController.isDarkMode.value
+                    ? Icons.light_mode_outlined
+                    : Icons.dark_mode_outlined,
+                size: 100)),
+            
+            onPressed: () {
+              // Get.changeTheme(Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
+              themeController.changeTheme();
+            },
           ),
           Obx(
             () => Text('${globalUsername.username}',

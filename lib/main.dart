@@ -17,13 +17,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final isDarkMode = LocalStorageAdapter.read<bool>('isDarkMode') ?? Get.isPlatformDarkMode;
+
+    
     return GetMaterialApp(
       title: 'GetX',
       debugShowCheckedModeBanner: false,
       // routerConfig: appRouter,
       getPages: getPages,
-      theme: AppTheme(isDarkMode: false).getTheme(),
+      // theme: AppTheme(isDarkMode: false).getTheme(),
+      theme: isDarkMode ? ThemeData.dark() : ThemeData.light(),
       initialBinding: StoreBindings(),
+      translations: Messages(),
+      locale: Get.deviceLocale,
     );
   }
 }

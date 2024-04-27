@@ -11,9 +11,11 @@ class StoreBindings extends Bindings {
     //     box.read('globalUsername') ?? 'Fernando Herrera';
     final globalUsername = LocalStorageAdapter.read<String>('globalUsername');
 
-
     Get.put(GlobalUsernameController(
-        initialUsername: globalUsername ?? 'Fernando Herrera',//'Juan Mendoza'
-        ));
+      initialUsername: globalUsername ?? 'Fernando Herrera', //'Juan Mendoza'
+    ));
+
+    Get.put(ThemeController(
+        currentTheme: LocalStorageAdapter.read<bool>('isDarkMode') ?? Get.isPlatformDarkMode));
   }
 }

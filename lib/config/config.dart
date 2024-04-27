@@ -4,3 +4,5 @@ export 'router/app_router.dart';
 export 'theme/app_theme.dart';
 
 export './adapters/local_storage.adapter.dart';
+
+export './i18n/messages.dart';

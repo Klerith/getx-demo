@@ -25,18 +25,18 @@ class _HomeScreenView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: const [
+      children: [
         _CustomListTile(
-            title: 'Estado básico',
-            subTitle: 'Un estado para almacenar un objeto',
+            title: 'basic-state'.tr,
+            subTitle: 'basic-state-desc'.tr,
             location: '/basic-state'),
         _CustomListTile(
-            title: 'i18n Locales',
-            subTitle: 'Cambiar idioma',
+            title: 'i18n-locales'.tr,
+            subTitle: 'i18n-locales-desc'.tr,
             location: '/lang-i18n'),
         _CustomListTile(
-            title: 'State compuesto',
-            subTitle: 'TODO - Una mezcla entre controladores',
+            title: 'compose-state'.tr,
+            subTitle: 'compose-state-desc'.tr,
             location: '/complex-state'),
       ],
     );
