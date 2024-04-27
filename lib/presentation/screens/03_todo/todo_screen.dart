@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:state_app/config/config.dart';
 import 'package:state_app/presentation/store/controllers/guest_list.dart';
 
-class TodoScreen extends StatelessWidget {
+class TodoScreen extends GetView<GuestListController> {
   const TodoScreen({super.key});
 
   @override
@@ -14,7 +15,9 @@ class TodoScreen extends StatelessWidget {
       body: const _TodoView(),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () {
+          controller.addGuest( RandomGenerator.getRandomName() );
+        },
       ),
     );
   }
@@ -43,7 +46,7 @@ class _TodoView extends GetView<GuestListController> {
               ButtonSegment(
                   value: GuestFilter.pending, icon: Text('Pendientes')),
             ],
-            selected: <GuestFilter>{ controller.currentFilter.value },
+            selected: <GuestFilter>{controller.currentFilter.value},
             onSelectionChanged: (value) {
               controller.changeFilter(value.first);
             },
@@ -53,13 +56,21 @@ class _TodoView extends GetView<GuestListController> {
 
         /// Listado de personas a invitar
         Expanded(
-          child: ListView.builder(
-            itemBuilder: (context, index) {
-              return SwitchListTile(
-                  title: const Text('Juan Carlos'),
-                  value: true,
-                  onChanged: (value) {});
-            },
+          child: Obx(
+            () => ListView.builder(
+              // itemCount: controller.guestList.length,
+              itemCount: controller.filteredGuestList.length,
+              itemBuilder: (context, index) {
+                final guest = controller.filteredGuestList[index];
+
+                return SwitchListTile(
+                    title: Text(guest.name),
+                    value: guest.confirmed,
+                    onChanged: (value) {
+                      controller.toggleConfirmation(guest.id);
+                    });
+              },
+            ),
           ),
         )
       ],
