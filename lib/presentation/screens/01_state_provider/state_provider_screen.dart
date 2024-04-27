@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:state_app/presentation/screens/controllers/counter_controller.dart';
 
 
 class BasicStateScreen extends StatelessWidget {
@@ -25,8 +27,14 @@ class BasicStateScreen extends StatelessWidget {
 
             TextButton.icon(
               icon: const Icon( Icons.add, size: 50,),
-              label: const Text('0', style: TextStyle(fontSize: 100)),
-              onPressed: () {},
+              label: GetBuilder<CounterController>(
+                init: CounterController(),
+                builder: (controller) => Text('${ controller.counter}', style: TextStyle(fontSize: 100)),
+              ),
+              onPressed: () {
+                final counterController = Get.find<CounterController>();
+                counterController.increment();
+              },
             ),
             
             const Spacer( flex: 2 ),
