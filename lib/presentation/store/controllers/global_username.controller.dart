@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:state_app/config/config.dart';
 
 
 
@@ -13,6 +14,8 @@ class GlobalUsernameController extends GetxController {
 
   void changeUsername( String name ) {
     username.value = name;
+    LocalStorageAdapter.save('globalUsername', name);
+
   }
 
 }

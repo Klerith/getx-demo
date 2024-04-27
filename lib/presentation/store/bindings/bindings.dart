@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-// import 'package:get_storage/get_storage.dart';
+import 'package:state_app/config/config.dart';
 import 'package:state_app/presentation/store/controllers/controllers.dart';
 
 class StoreBindings extends Bindings {
@@ -9,9 +9,11 @@ class StoreBindings extends Bindings {
 
     // final String globalUsername =
     //     box.read('globalUsername') ?? 'Fernando Herrera';
+    final globalUsername = LocalStorageAdapter.read<String>('globalUsername');
+
 
     Get.put(GlobalUsernameController(
-        initialUsername: 'Juan', //'Juan Mendoza'
+        initialUsername: globalUsername ?? 'Fernando Herrera',//'Juan Mendoza'
         ));
   }
 }
