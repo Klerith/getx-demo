@@ -17,5 +17,8 @@ class StoreBindings extends Bindings {
 
     Get.put(ThemeController(
         currentTheme: LocalStorageAdapter.read<bool>('isDarkMode') ?? Get.isPlatformDarkMode));
+
+
+    Get.lazyPut(() => GuestListController());
   }
 }

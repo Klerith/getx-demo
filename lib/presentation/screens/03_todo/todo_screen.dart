@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
+import 'package:state_app/presentation/store/controllers/guest_list.dart';
 
 class TodoScreen extends StatelessWidget {
   const TodoScreen({super.key});
@@ -12,15 +13,14 @@ class TodoScreen extends StatelessWidget {
       ),
       body: const _TodoView(),
       floatingActionButton: FloatingActionButton(
-        child: const Icon( Icons.add ),
+        child: const Icon(Icons.add),
         onPressed: () {},
       ),
     );
   }
 }
 
-
-class _TodoView extends StatelessWidget {
+class _TodoView extends GetView<GuestListController> {
   const _TodoView();
 
   @override
@@ -32,28 +32,33 @@ class _TodoView extends StatelessWidget {
           subtitle: Text('Estas son las personas a invitar a la fiesta'),
         ),
 
-        SegmentedButton(
-          segments: const[
-            ButtonSegment(value: 'all', icon: Text('Todos')),
-            ButtonSegment(value: 'completed', icon: Text('Invitados')),
-            ButtonSegment(value: 'pending', icon: Text('No invitados')),
-          ], 
-          selected: const <String>{ 'all' },
-          onSelectionChanged: (value) {
-            
-          },
+        /// Filtro de invitados
+        Obx(
+          () => SegmentedButton(
+            multiSelectionEnabled: false,
+            segments: const [
+              ButtonSegment(value: GuestFilter.all, icon: Text('Todos')),
+              ButtonSegment(
+                  value: GuestFilter.confirmed, icon: Text('Confirmados')),
+              ButtonSegment(
+                  value: GuestFilter.pending, icon: Text('Pendientes')),
+            ],
+            selected: <GuestFilter>{ controller.currentFilter.value },
+            onSelectionChanged: (value) {
+              controller.changeFilter(value.first);
+            },
+          ),
         ),
-        const SizedBox( height: 5 ),
+        const SizedBox(height: 5),
 
         /// Listado de personas a invitar
         Expanded(
           child: ListView.builder(
             itemBuilder: (context, index) {
               return SwitchListTile(
-                title: const Text('Juan Carlos'),
-                value: true, 
-                onChanged: ( value ) {}
-              );
+                  title: const Text('Juan Carlos'),
+                  value: true,
+                  onChanged: (value) {});
             },
           ),
         )
