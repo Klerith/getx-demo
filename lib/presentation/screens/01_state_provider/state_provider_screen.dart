@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:state_app/config/config.dart';
-import 'package:state_app/presentation/screens/controllers/controllers.dart';
+import 'package:state_app/presentation/store/store.dart';
 
 class BasicStateScreen extends StatelessWidget {
   const BasicStateScreen({super.key});
