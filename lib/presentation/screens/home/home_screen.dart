@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:state_app/presentation/screens/controllers/controllers.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+    final globalUsername = Get.find<GlobalUsernameController>().username;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('GetX - State Management'),
+        title: Obx(() => Text(globalUsername.value)),
       ),
       body: const _HomeScreenView(),
     );
