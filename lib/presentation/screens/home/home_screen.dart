@@ -8,7 +8,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Riverpod Providers'),
+        title: const Text('GetX - State Management'),
       ),
       body: const _HomeScreenView(),
     );
